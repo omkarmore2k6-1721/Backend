@@ -5,7 +5,15 @@ import connectDB from "./db/index.js";
 
 
 dotenv.config();
-connectDB();
+connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000, () => {
+        console.log(`App is listing on : ${process.env.PORT || 8000}` )
+    })
+})
+.catch((error) => {
+    console.log("Error while connecting to database !!!", error);
+})
 
 // import express from "express";
 
