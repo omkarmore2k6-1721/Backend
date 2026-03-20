@@ -1,8 +1,11 @@
 import dotenv from "dotenv";
-
-
 import connectDB from "./db/index.js";
+import app from "./app.js";
 
+app.on("error", (error) => {
+    console.error("Server error:", error);
+    throw error;
+});
 
 dotenv.config();
 connectDB()
@@ -15,9 +18,7 @@ connectDB()
     console.log("Error while connecting to database !!!", error);
 })
 
-// import express from "express";
-
-// const app = express()
+ 
 // ;( async () => {
 //     try {
 //        await mongoose.connect(`${process.env.MONGO_URL}/${DB_NAME}`);
