@@ -93,6 +93,10 @@ userSchema.methods.generateRefreshToken = function() {
 }
 export const User = mongoose.model("User" , userSchema);
 
+// as we havent exported above model default
+//so we will import it like 
+// import {user} from "../models/"
+
 
 //bcrypt and bycrpt js
 //used to hash password and compare password in a better way.
