@@ -7,7 +7,7 @@ app.on("error", (error) => {
     throw error;
 });
 
-dotenv.config();
+dotenv.config({});
 connectDB()
 .then(() => {
     app.listen(process.env.PORT || 8000, () => {
