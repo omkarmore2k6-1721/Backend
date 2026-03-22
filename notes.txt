@@ -1,0 +1,14 @@
+// flow for logout Logic
+User clicks logout
+        ↓
+Refresh token taken from cookie
+        ↓
+JWT verify
+        ↓
+Find user by ID
+        ↓
+Set refreshToken = null in DB
+        ↓
+Clear cookies
+        ↓
+User logged out

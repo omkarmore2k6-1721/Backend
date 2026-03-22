@@ -1,6 +1,8 @@
 import { Router } from "express";
-import { registerUser } from "../controllers/user.controller.js";
+import { loginUser, logoutUser, registerUser } from "../controllers/user.controller.js";
 import {upload} from "../middlewares/multer.middleware.js"
+import { auth } from "../middlewares/auth.middleware.js";
+import { AccessAndRefreshTokens } from "../controllers/user.controller.js";
 const userRouter = Router();
 
 userRouter.route("/register").post(
@@ -26,4 +28,11 @@ userRouter.route("/register").post(
 //}
     // const avtar = req.files.avtar[0];  this how we can access it
 //serRouter.post("/register", registerUser);
+
+
+userRouter.route("/login").post(loginUser);
+
+userRouter.route("/logout").post(auth ,logoutUser);
+
+userRouter.route("/refresh-Token").post(AccessAndRefreshTokens);
 export default userRouter;
